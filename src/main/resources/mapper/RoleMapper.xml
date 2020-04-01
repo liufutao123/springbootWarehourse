@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cdu.lft.dao.RoleMapper">
+    <select id="queryRolePermissionIdsByRid" parameterType="integer" resultType="integer">
+        select pid from sys_role_permission where rid=#{rid}
+    </select>
+
+
+    <delete id="deleteRolePermissionByRid" parameterType="integer">
+        delete from sys_role_permission where rid=#{rid}
+    </delete>
+
+    <insert id="saveRolePermission" >
+        insert  into sys_role_permission(rid,pid) values(#{rid},#{pid})
+    </insert>
+
+</mapper>
