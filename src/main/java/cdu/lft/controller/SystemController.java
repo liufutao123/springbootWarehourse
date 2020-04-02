@@ -151,4 +151,12 @@ public class SystemController {
     }
     /*************角色管理界面跳转结束******************/
 
+
+    /*************用户管理界面跳转开始******************/
+    @RequestMapping("toUserManager")
+    public String toUserManager(){
+        return "system/user/userManager";
+    }
+    /*************用户管理界面跳转结束******************/
+
 }

@@ -1,6 +1,7 @@
 package cdu.lft.service;
 
 import cdu.lft.bean.Dept;
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -12,5 +13,4 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2020-03-30
  */
 public interface DeptService extends IService<Dept> {
-
 }

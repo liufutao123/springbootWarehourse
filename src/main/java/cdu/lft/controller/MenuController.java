@@ -4,6 +4,7 @@ import cdu.lft.bean.Permission;
 import cdu.lft.bean.User;
 import cdu.lft.common.*;
 import cdu.lft.service.PermissionService;
+import cdu.lft.service.RoleService;
 import cdu.lft.vo.PermissionVo;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -30,6 +31,8 @@ public class MenuController {
 
     @Autowired
     private PermissionService permissionService;
+    @Autowired
+    private RoleService roleService;
 
     @RequestMapping("loadIndexLeftMenuJson")
     public DataGridView loadIndexLeftMenuJson(PermissionVo permissionVo){
@@ -42,6 +45,22 @@ public class MenuController {
             list=permissionService.list(wrapper);
         }else{
             //根据用户id和角色权限去查询
+            //第一步：通过用户id拿到用户拥有的角色id
+            List<Integer> rids=roleService.queryRoleUserIdsByUid(user.getId());
+            //第二步：通过拿到的角色id，查询角色拥有的权限id（及菜单）
+            List<Integer> pid=null;
+            if (rids.size()>0) {
+                pid = roleService.queryRolePermissionIdsByRids(rids);
+            } else {
+                pid=new ArrayList<>();
+            }
+            //第三步：通过拿到的权限id查询用户可是使用的权限
+            if (pid.size()>0) {
+                wrapper.in("id",pid);
+                list=permissionService.list(wrapper);
+            } else {
+                list=new ArrayList<>();
+            }
         }
 
         List<TreeNode> nodeList=new ArrayList<>();

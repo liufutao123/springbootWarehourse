@@ -14,4 +14,29 @@
         insert  into sys_role_permission(rid,pid) values(#{rid},#{pid})
     </insert>
 
+
+    <select id="queryRolePermissionIdsByRids" parameterType="list" resultType="integer">
+        select pid from sys_role_permission where rid in
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+
+
+
+    <select id="queryRoleUserIdsByUid" parameterType="integer" resultType="integer">
+        select rid from sys_role_user where uid=#{uid}
+    </select>
+
+
+
+    <delete id="deleteRoleUserByUid" parameterType="integer">
+        delete from sys_role_user where uid=#{uid}
+    </delete>
+
+    <insert id="saveRoleUser" >
+        insert  into sys_role_user(uid,rid) values(#{uid},#{rid})
+    </insert>
+
+
 </mapper>

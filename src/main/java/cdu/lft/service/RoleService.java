@@ -14,8 +14,17 @@ import java.util.List;
  * @since 2020-03-31
  */
 public interface RoleService extends IService<Role> {
-    public List<Integer> queryRolePermissionIdsByRid(Integer id);
 
+    List<Integer> queryRolePermissionIdsByRid(Integer id);
 
     void saveRolePermission(Integer id,Integer[] ids);
+
+    List<Integer> queryRolePermissionIdsByRids(List<Integer> ids);
+
+
+
+
+    List<Integer> queryRoleUserIdsByUid(Integer uid);
+
+    void saveUserRole(Integer uid,Integer[] ids);
 }
