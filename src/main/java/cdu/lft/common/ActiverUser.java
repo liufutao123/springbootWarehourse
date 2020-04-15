@@ -1,6 +1,6 @@
 package cdu.lft.common;
 
-import cdu.lft.bean.User;
+import cdu.lft.sys.bean.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

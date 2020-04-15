@@ -1,7 +1,6 @@
 package cdu.lft.common;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.sun.media.jfxmedia.events.PlayerTimeListener;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

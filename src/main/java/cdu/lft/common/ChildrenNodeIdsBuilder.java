@@ -1,7 +1,7 @@
 package cdu.lft.common;
 
-import cdu.lft.bean.Dept;
-import cdu.lft.bean.Permission;
+import cdu.lft.sys.bean.Dept;
+import cdu.lft.sys.bean.Permission;
 
 import java.util.ArrayList;
 import java.util.Collections;

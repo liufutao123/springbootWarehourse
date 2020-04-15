@@ -53,6 +53,12 @@ public class ResultObj {
     public static  final ResultObj DISPATCH_FALSE=new ResultObj(Constast.ERROR,"分配失败");
 
 
+    /*
+    * 缓存
+    * */
+    public static  final ResultObj OPERATE_SUCCESS=new ResultObj(Constast.OK,"缓存成功");
+
+
 
     private Integer code;
     private String msg;
